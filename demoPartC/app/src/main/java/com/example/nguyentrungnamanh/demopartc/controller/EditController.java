@@ -21,6 +21,7 @@ public class EditController implements View.OnClickListener {
     private Context context;
     private Activity activity;
     private Person person;
+    private DateTimePickerDialog dateTimePickerDialog;
     private Person.personInformation p;
     private int index;
 
@@ -33,6 +34,7 @@ public class EditController implements View.OnClickListener {
         this.index = activity.getIntent().getIntExtra("index",-1);
         this.p = this.person.getPersonByIndex(this.index);
 
+        this.dateTimePickerDialog = new DateTimePickerDialog(this.context,this.activity);
         DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.SHORT);
 
         this.editFirstName = this.activity.findViewById(R.id.editFirstName);
@@ -48,9 +50,6 @@ public class EditController implements View.OnClickListener {
         this.editWeight.setText(String.valueOf(p.getWeight()));
 
     }
-
-
-
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.btnSave) {
@@ -88,11 +87,13 @@ public class EditController implements View.OnClickListener {
                 );
                 activity.finish();
             }
-
-
         }
-        else {
+        else if (v.getId() == R.id.btnCancel){
             activity.finish();
+        }
+
+        else if (v.getId() == R.id.btnEdit) {
+            dateTimePickerDialog.dateTimePicker();
         }
     }
 }

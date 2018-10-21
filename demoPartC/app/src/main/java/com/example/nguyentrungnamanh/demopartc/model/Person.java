@@ -104,8 +104,6 @@ public class Person {
     }
 
     public void initialSomeDataForTest()   {
-
-
         try {
             DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.SHORT);
             personInformation p1 = new personInformation(
@@ -152,55 +150,19 @@ public class Person {
         return personInformationList.get(index);
     }
 
+    public String getBirthday(int index) {
+        DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.SHORT);
+        return dateFormat.format(personInformationList.get(index).getBirthDay());
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-//    private void parseFile(Context context)
-//    {
-//        personInformationList.clear();
-        // resource reference to tracking_data.txt in res/raw/ folder of your project
-        // supports trailing comments with //
-        //try (Scanner scanner = new Scanner(context.getResources().openRawResource(R.raw.tracking_data)))
-//        {
-//            // match comma and 0 or more whitespace OR trailing space and newline
-//            scanner.useDelimiter(",\\s*|\\s*\\n+");
-//            while (scanner.hasNext())
-//            {
-//                TrackingInfo trackingInfo = new TrackingInfo();
-//                trackingInfo.date = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM).parse(scanner.next());
-//                trackingInfo.trackableId = Integer.parseInt(scanner.next());
-//                trackingInfo.stopTime = Integer.parseInt(scanner.next());
-//                trackingInfo.latitude = Double.parseDouble(scanner.next());
-//                String next=scanner.next();
-//                int commentPos;
-//                // strip trailing comment
-//                if((commentPos=next.indexOf("//")) >=0)
-//                    next=next.substring(0, commentPos);
-//                trackingInfo.longitude = Double.parseDouble(next);
-//                trackingList.add(trackingInfo);
-//            }
-//        }
-//        catch (Resources.NotFoundException e)
-//        {
-//            Log.i(LOG_TAG, "File Not Found Exception Caught");
-//        }
-//        catch (ParseException e)
-//        {
-//            Log.i(LOG_TAG, "ParseException Caught (Incorrect File Format)");
-//        }
-//    }
-
-
-
-
+    public void editBirthday(String birthDay, int index) {
+        DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.SHORT);
+        personInformation p = personInformationList.get(index);
+        try {
+            p.setBirthDay(dateFormat.parse(birthDay));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

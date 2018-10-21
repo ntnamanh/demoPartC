@@ -15,9 +15,11 @@ public class EditPerson extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_person);
         Button btnSave = findViewById(R.id.btnSave);
+        Button btnEdit = findViewById(R.id.btnEdit);
         Button btnCancel = findViewById(R.id.btnCancel);
         btnSave.setOnClickListener(new EditController(this,this));
         btnCancel.setOnClickListener(new EditController(this,this));
+        btnEdit.setOnClickListener(new EditController(this,this));
 
     }
 }

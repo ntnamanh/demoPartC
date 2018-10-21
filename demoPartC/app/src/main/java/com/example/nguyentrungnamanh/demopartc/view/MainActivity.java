@@ -1,5 +1,6 @@
 package com.example.nguyentrungnamanh.demopartc.view;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         this.listView = findViewById(R.id.personListView);
         itemAdapter = new ItemAdapter(this,R.layout.item_layout,person.getPersonInformationList());
         this.listView.setAdapter(itemAdapter);
-        this.listView.setOnItemClickListener(new PersonController(this));
+        this.listView.setOnItemClickListener(new PersonController(this,-1));
     }
 
     @Override

@@ -7,9 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.nguyentrungnamanh.demopartc.R;
+import com.example.nguyentrungnamanh.demopartc.controller.PersonController;
 import com.example.nguyentrungnamanh.demopartc.model.Person;
 
 import java.text.DateFormat;
@@ -75,7 +77,10 @@ public class ItemAdapter extends ArrayAdapter<Person.personInformation> {
         txtHeight.setText(height);
         TextView txtWeight = convertView.findViewById(R.id.txtWeight);
         txtWeight.setText(weight);
+        Button btnChange = convertView.findViewById(R.id.btnChange);
 
+        btnChange.setOnClickListener(new PersonController(context,person.getIndex(getItem(position))));
+        
         return convertView;
     }
 

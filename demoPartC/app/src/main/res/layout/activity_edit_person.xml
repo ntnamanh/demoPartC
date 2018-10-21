@@ -46,7 +46,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical">
+
             <EditText
                 android:id="@+id/editBirthDay"
                 android:layout_width="match_parent"
@@ -55,6 +56,12 @@
                 android:hint="Birth Date"
                 >
                 <requestFocus /></EditText>
+
+            <Button
+                android:id="@+id/btnEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Change Date" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
